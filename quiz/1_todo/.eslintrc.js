@@ -16,9 +16,9 @@ module.exports = {
       {
         singleQuote: true,
         semi: true,
-        useTabs: false,
+        useTabs:false,
         tabWidth: 2,
-        printWidth: 80,
+        printWidth: 'auto',
         bracketSpacing: true,
         arrowParens: 'avoid',
         endOfLine : 'auto',
