@@ -31,4 +31,37 @@
         value: 'jaeho',
         selected: true,
     }
+
+    // 제네릭의 타입제한
+    // TS입장에서는 제네릭 ✨ logTextLength 함수가 어떤 타입이 올지 예측불가하다 ✨ 그래서 text.length(X);
+    // T[] 로 주자 (타입 힌트를 추가적으로 주자)
+    function logTextLength<T>(text: T[]): T[] {
+        text.forEach((item) => {
+            console.log(item);
+        })
+        return text;
+    }
+    const logLength = logTextLength<string>(['hi', 'abcccc']);
+
+    //제네릭 타입 제한 2 - 정의된 타입 이용하기
+    interface LengthType {
+        length: number;
+    }
+    function logTextLength2<T extends LengthType>(text: T): T {
+        console.log(text.length);
+        return text;
+    }
+    logTextLength2('a');
+    logTextLength2({ length: 5 });
+
+    // 제네릭 타입 제한 3 -keyof 이미 정의되어 있는 타입의 key 값만 '' 받을 수 있음.
+    interface ShoppingItem {
+        name: string;
+        price: number;
+        stock: number;
+    }
+    function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+        return itemOption;
+    }
+    getShoppingItemOption('name');
 }

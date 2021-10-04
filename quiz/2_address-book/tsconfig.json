@@ -4,7 +4,9 @@
     "checkJs": true,
     "target": "es5",
     "lib": ["es2015", "dom", "dom.iterable"],
-    "noImplicitAny": false
+    "noImplicitAny": true , // 타입에 any라도 붙혀!
+    "strict": true,
+    "strictFunctionTypes": true
   },
   "include": ["./src/**/*"]
 }
