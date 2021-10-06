@@ -25,12 +25,13 @@
         name: string;
         age: number;
     }
-    // Union Type (OR) === |  공통된 프로퍼티만 접근이 가능하다. name 만! (교집합)
+    // Union Type (OR) | ==>   공통된 프로퍼티만 접근이 가능하다. name 만! (교집합)
     function askSomeone(someone: Developer | Person) {
         // TS관점에서 someone 에 어떤 값이 대입 될 줄 모르기 때문에. someone.age 에러.
-        // TS는 보장된 속성만 제공이된다.
-        console.log(someone.name);
+        // TS는 보장된 속성만 제공이된다. ✨✨
+        console.log("aaaaaaaaaaaa " + someone.name);
     }
+    // Person 들어감.
     askSomeone({ name: 'jaeho', age: 26 });
 
     // InterSection Type (AND) === &

@@ -1,19 +1,4 @@
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
-enum PhoneType {
-  Home = 'home',
-  Office = 'office',
-  Studio = 'studio',
-}
+import { Contact, PhoneType } from './types';
 // api
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
 function fetchContacts(): Promise<Contact[]> {
@@ -97,8 +82,17 @@ class AddressBook {
   }
 
   displayListByAddress(): string[] {
-    return this.contacts.map(contact => contact.address); 
+    return this.contacts.map(contact => contact.address);
   }
   /* ------------------------------------------------ */
 }
 new AddressBook();
+
+// querySelector 자체가 return 값이 union type  ===  HTMLDivElement | null 이다.
+//고로 typescript server 은 div 에는 무슨 값이 둘중에 올지 몰라서 에러발생
+//고로 null 이 아니라고 보장해줘야된다.
+const div = document.querySelector('div') as HTMLDivElement;
+if (div) {
+  div.innerText = '보장완료';
+}
+
