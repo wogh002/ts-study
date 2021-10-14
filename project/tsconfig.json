@@ -6,7 +6,7 @@
         //target? tsc -> ts파일을 js 파일로 컴파일하는데 JS버전을 target 으로 설정
         "target": "ES5",
         //outDir? ts의 결과물이 어디로 들어갈 것인가.   
-        "outDir": "./built",
+        "outDir": "./dist",
         //moduleResolution? 프로미스 인식시켜주기 위해서
         "moduleResolution": "Node",
         "lib": [
@@ -16,6 +16,7 @@
         ],
         // noImplicitAny? true 일 경우 => 타입에 any 라도 붙혀라
         "noImplicitAny": true,
+        "strict": true,
     },
     // include? 현재 프로젝트기준으로 어떤 파일들을 대상으로 typescript를 컴파일 시킬꺼냐?
     "include": [
